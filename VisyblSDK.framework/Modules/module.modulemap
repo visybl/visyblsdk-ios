@@ -1,0 +1,6 @@
+framework module VisyblSDK {
+  umbrella header "VisyblSDK.h"
+
+  export *
+  module * { export * }
+}
