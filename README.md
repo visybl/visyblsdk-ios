@@ -8,7 +8,7 @@ This example iOS project provides a fully working App using VisyblSDK Framework.
 
 Step 1: #import VisyblSDK/VisyblSDK.h
 
-Step 2: Visybl vis = Visybl.beaconsLinkedHashMap.get(name);
+Step 2: VVSVisybl *scannedVisybl = [weakVisyblDictionary valueForKey:visybl.mDeviceName];
 
 Step 3: Read all parameters from vis.
 
