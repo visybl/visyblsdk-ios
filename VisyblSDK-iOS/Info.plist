@@ -22,7 +22,9 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationAlwaysUsageDescription</key>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Visybl needs this to report asset location.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Visybl needs this to report asset location.</string>
 	<key>UIBackgroundModes</key>
 	<array>
