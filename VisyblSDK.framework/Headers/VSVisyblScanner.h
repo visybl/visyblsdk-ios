@@ -50,6 +50,7 @@ extern NSString *const VSVisyblScannerBluetoothStatePoweredOn;
 @property (nonatomic, readonly) NSString *const bluetoothState;
 
 
+@property (nonatomic, readonly) NSMutableDictionary *discoveredBeacons;
 
 
 /*!
@@ -64,8 +65,8 @@ extern NSString *const VSVisyblScannerBluetoothStatePoweredOn;
 @property (nonatomic, copy) void (^didDiscoverVisybl)(VSVisybl *visybl);
 
 
-
-@property (nonatomic, copy) void (^didWriteOnPeripheral)(NSString *peripheral);
+@property (nonatomic, copy) void (^didWriteOnPeripheral) (NSString *peripheral);
+@property (nonatomic, copy) void (^didGetCommandResponse)(NSDictionary *response);
 
 
 
@@ -82,12 +83,8 @@ extern NSString *const VSVisyblScannerBluetoothStatePoweredOn;
 /**
  *  Restart scanner, will erease all stored data
  */
--(void)restartScanner;
+-(void)refreshScanner;
 
-/**
- *  Restart scanner, will not erease all stored data
- */
--(void)resumeScanner;
 
 +(VSVisyblScanner *)runVisyblScanner;
 
@@ -107,13 +104,18 @@ extern NSString *const VSVisyblScannerBluetoothStatePoweredOn;
 -(void)unregisterDevice;
 
 /*!
- *  Register Network Name and Password
- */
--(void)registerNetworkName:(NSString*)name withPassword:(NSString*)password;
-
-/*!
  *  Update Activities to the Cloud
  */
 -(void)updateActivities;
+
+/*!
+ *  Send command to CN
+ */
+-(void)sendCommand:(NSDictionary*)json;
+
+/*!
+ *  Start background updates
+ */
+-(void)startBackgroundUpdates:(BOOL)start;
 
 @end

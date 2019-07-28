@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class CBPeripheral;
+@class CLBeacon;
 
 //Asset Blink Colors
 typedef enum : NSInteger {BLINK_RED = 1, BLINK_GREEN = 2, BLINK_BOTH = 3} BlinkColors;
@@ -63,6 +64,10 @@ typedef enum : NSInteger {BLINK_RED = 1, BLINK_GREEN = 2, BLINK_BOTH = 3} BlinkC
 + (VSVisybl *)beaconWithAdvertismentDataDictionary:(NSDictionary *)dictionary
                                     withPeripheral:(CBPeripheral*)peripheral
                                           withRSSI:(NSNumber*)rssi;
+
++ (VSVisybl*)convertiBeaconToVisybl:(CLBeacon*)iB;
++ (VSVisybl *)beaconWithRawData:(NSString*)rawData withName:(NSString*)name withRSSI:(NSNumber*)rssi;
+
 - (void)newAdvert:(VSVisybl*)vis;
 
 //Get
@@ -73,6 +78,8 @@ typedef enum : NSInteger {BLINK_RED = 1, BLINK_GREEN = 2, BLINK_BOTH = 3} BlinkC
 - (NSString*)getRawData;
 
 //Helpers
-- (BOOL)isBeacon;
+-(BOOL)isBeacon;
+-(BOOL)isVirtualVisybl;
+-(BOOL)isCloudNode;
 
 @end
